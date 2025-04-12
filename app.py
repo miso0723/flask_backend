@@ -51,3 +51,8 @@ def topic_search():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+@app.route("/", methods=["GET"])
+def home():
+    return "서버 잘 작동 중!", 200
+

@@ -2,20 +2,24 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import requests
 import re
+import os
+from dotenv import load_dotenv
+
+load_dotenv ()
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 # CORS 활성화
 
 # 네이버 지도 API 키 설정
-MAPS_CLIENT_ID = "moiswv0h0p"
-MAPS_CLIENT_SECRET = "VWLR0m1RA0irvfCMi6pKmmtdMnFlDUgij9KzWRP9"
+MAPS_CLIENT_ID = "MAPS_CLIENT_ID"
+MAPS_CLIENT_SECRET = "MAPS_CLIENT_SECRET"
 
 # 뉴스 수집 함수
 def fetch_news(region, category):
     API_ENDPOINT = "https://openapi.naver.com/v1/search/news.json"
-    CLIENT_ID = "moiswv0h0p"
-    CLIENT_SECRET = "VWLR0m1RA0irvfCMi6pKmmtdMnFlDUgij9KzWRP9"
+    CLIENT_ID = "MAPS_CLIENT_ID"
+    CLIENT_SECRET = "MAPS_CLIENT_SECRET"
 
     query = f"{region} {category}"
 

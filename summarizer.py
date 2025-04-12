@@ -1,7 +1,11 @@
+import os
+from dotenv import load_dotenv
 import openai
 
+load_dotenv ()
+
 # OpenAI API 키 설정
-openai.api_key = "your_key"
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 
 def summarize_with_sentiment(content, sentiment):

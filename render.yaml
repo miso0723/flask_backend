@@ -2,8 +2,12 @@ services:
   - type: web
     name: flask-backend
     env: python
-    buildCommand: ""
-    startCommand: gunicorn app:app
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn -w 4 -b 0.0.0.0:10000 app:app
     envVars:
-      - key: FLASK_ENV
-        value: production
+      - key: OPENAI_API_KEY
+        value: your_openai_key_here
+      - key: MAPS_CLIENT_ID
+        value: your_maps_client_id_here
+      - key: MAPS_CLIENT_SECRET
+        value: your_maps_client_secret_here

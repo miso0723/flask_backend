@@ -13,7 +13,7 @@ def topic_search():
         # 클라이언트 요청 데이터 가져오기
         data = request.get_json()
         search_content = data.get('topic')
-        max_news = 20  # 고정값
+        max_news = 4  # 고정값
 
         if not search_content:
             return jsonify({"error": "검색어를 입력해주세요."}), 400
